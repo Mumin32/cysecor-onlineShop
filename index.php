@@ -1,5 +1,9 @@
 <?php
-include_once "./config/config.php";
-
+require_once "./public/header.php";
 ?>
-<a href="register.php">Registruj se</a>
+
+
+
+<?php
+require_once "./public/footer.php";
+?>
