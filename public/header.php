@@ -60,10 +60,16 @@ $user = new User($conn);
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders.php">My Orders</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/cart.php">Cart</a>
+
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout.php">Logout</a>
                             </li>
+
+
                         <?php endif; ?>
                     </ul>
                     <span class="navbar-text">

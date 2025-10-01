@@ -32,11 +32,12 @@ class User
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['user_id'] = $user['id'];
             return true;
-        }
+        } else {
 
-        return false;
+            return false;
+        }
     }
     public function is_logged()
     {
@@ -45,5 +46,9 @@ class User
         } else {
             return false;
         }
+    }
+    public function logout()
+    {
+        unset($_SESSION["user_id"]);
     }
 }
