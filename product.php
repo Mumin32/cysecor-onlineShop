@@ -9,9 +9,10 @@ $product = $product->read($_GET['product_id']);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $product_id = $_POST['product_id'];
     $user_id = $_SESSION['user_id'];
+    $quantity = $_SESSION['quantity'];
 
     $cart = new Cart($conn);
-    $cart->add_to_cart($product_id, $user_id);
+    $cart->add_to_cart($product_id, $user_id, $quantity);
 
     header("Location: cart.php");
     exit();
@@ -29,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <p class="card-text"><?= $product["price"] ?> </p>
                 <form action="" method="post">
                     <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                    <input type="number" name="quantity" id="">
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </form>
 

@@ -8,7 +8,7 @@ if (!$user->is_logged()) {
 }
 $cart = new Cart($conn);
 $cart_items = $cart->get_cart_items();
-var_dump($cart_items)
+
 ?>
 
 <table class="table table-striped">
@@ -19,6 +19,7 @@ var_dump($cart_items)
             <th scope="col">Size</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
+            <th scope="col">quantity</th>
         </tr>
     </thead>
     <tbody>
@@ -28,10 +29,12 @@ var_dump($cart_items)
                 <td><?= $item['size'] ?></td>
                 <td><?= $item['price'] ?></td>
                 <td><?= $item['image'] ?></td>
+                <td><?= $item['quantity'] ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+<a href="checkout.php" class="btn btn-primary">Checkout</a>
 
 
 <?php require_once "./public/footer.php"; ?>
